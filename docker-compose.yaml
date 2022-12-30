@@ -1,0 +1,9 @@
+services:
+  jupyterhub:
+    image: 981bc29eecd4
+    ports:
+      - "80:8000"
+  test_image:
+    image: webdevops/bootstrap
+    ports:
+      - "5000:5000"
