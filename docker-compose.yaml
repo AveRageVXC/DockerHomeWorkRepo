@@ -1,9 +1,20 @@
 services:
   jupyterhub:
-    image: 981bc29eecd4
+    build: .
     ports:
-      - "80:8000"
+      - '80:8000'
+    volumes:
+      #- save_admin:/home/admin
+      - save_home:/home
+      - ${NOTEBOOKS_FROM}:${HUB_PATH}
+  # NOTEBOOKS_FROM HUB_PATH
   test_image:
     image: webdevops/bootstrap
     ports:
       - "5000:5000"
+
+volumes:
+  save_home:
+#docker ps
+#docker stop
+#docker-compose --env-file variables.env up -d
